@@ -104,9 +104,22 @@ notification_topic /client/WB8IP21/bridge_status
 start_type automatic
 topic /# both 0 "" WB8IP21
 ```
+```yaml
+connection WB8IP21
+address 192.168.1.10:1883
+remote_username mqtt
+remote_password mqtt
+try_private false
+allow_anonymous true
+notifications true
+notification_topic /client/WB8IP21/bridge_status
+start_type automatic
+topic /# both 0 "" WB8IP21
+```
 :ballot_box_with_check: Перезапустите mosquitto, выполнив в консоли:
 ```yaml
 service mosquitto restart
 ```
+
 
 
