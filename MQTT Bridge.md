@@ -120,6 +120,29 @@ topic /# both 0 "" WB8IP21
 ```yaml
 service mosquitto restart
 ```
+:ballot_box_with_check: Путь к конфигурации - `/etc/mosquitto/conf.d/21bridges.conf`   
+Есть два контроллера wb8ip21 и wb8ip22 нужно топик /devices/wb-mio-gpio_139:1/# перенести с 22 на 21
+```yaml
+# --- "самомост" WB8IP22 -> WB8IP21 ---
+connection copy_wb8ip22_gpio139_to_wb8ip21
+address 192.168.2.5:1883
 
+clientid copy-wb8ip22-gpio139
+cleansession true
+try_private false
+keepalive_interval 60
+restart_timeout 5
+
+remote_username mqtt
+remote_password mqtt
+
+notifications false
+start_type automatic
+
+# Копируем всю ветку:
+# WB8IP22/devices/wb-mio-gpio_139:1/#  ->  WB8IP21/devices/wb-mio-gpio_139:1/#
+topic devices/wb-mio-gpio_139:1/# out 0 WB8IP22/ WB8IP21/
+
+```
 
 
