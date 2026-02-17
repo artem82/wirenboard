@@ -56,3 +56,22 @@ defineRule({
   }
 });
 ```
+пример 4
+```javascript
+defineRule({
+  whenChanged: "wb-mcm8_105/Input 2 counter",
+  then: function (newValue, devName, cellName) {
+    
+    if ( dev["wb-led_115/Channel 4"] == true) { //если кнопка нажата
+    dev["wb-led_115/Channel 4"] = false;
+    } 
+    
+    if ( dev["wb-led_115/Channel 4"] == false) { //если кнопка нажата
+    dev["wb-led_115/Channel 4"] = true;
+
+    } 
+    
+  }
+});
+
+```
