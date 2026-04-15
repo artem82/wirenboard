@@ -57,6 +57,10 @@ wb-mcu-fw-updater update-all
 for i in {1..247}; do echo -n "$i - "; D=`modbus_client -mrtu /dev/ttyRS485-1 --debug -b9600 -pnone -s2 -a$i -t3 -o100 -r200 -c6 2>/dev/null | grep Data: | awk 'gsub("Data:","")' | sed -e 's/0x00/\\\x/g' -e 's/\s//g'`; echo -e $D; done
 ```
 
+### Socat MGE
+```yaml
+socat -d -d -d -x PTY,raw,b9600,parenb=0,cstopb=2,cs8,link=/dev/ttyRS485-5 tcp:192.168.1.172:23
+```
 ### WIRENBOARD CLOUD
 
 ```yaml
