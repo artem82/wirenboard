@@ -63,3 +63,13 @@ apt install wb-cloud-agent
 ```yaml
 https://fw-releases.wirenboard.com/?prefix=fit_image/stable/8x/
 ```
+
+### WIRENBOARD Драйвер wb-mqtt-serial
+```yaml
+/etc/wb-mqtt-serial.conf
+```
+```yaml
+systemctl stop wb-mqtt-serial # остановить
+systemctl start wb-mqtt-serial # запустить
+systemctl restart wb-mqtt-serial # перезапустить
+```
