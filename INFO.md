@@ -72,4 +72,5 @@ https://fw-releases.wirenboard.com/?prefix=fit_image/stable/8x/
 systemctl stop wb-mqtt-serial # остановить
 systemctl start wb-mqtt-serial # запустить
 systemctl restart wb-mqtt-serial # перезапустить
+systemctl status wb-mqtt-serial 
 ```
