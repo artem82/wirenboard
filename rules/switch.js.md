@@ -75,3 +75,38 @@ defineRule({
 });
 
 ```
+
+пример 5 AI
+```javascript
+defineRule("input1_led107ch4_toggle", {
+    whenChanged: "wb-mcm8_221/Input 1",
+    then: function (newValue) {
+        if (!newValue) return; // реагируем только на замыкание
+
+        var ch = "wb-led_107/Channel 4";
+        dev[ch] = !dev[ch];
+    }
+});
+
+
+defineRule("wb-mcm8_221/Input 2", {
+    whenChanged: "wb-mcm8_221/Input 2",
+    then: function (newValue) {
+        if (!newValue) return; // реагируем только на замыкание
+
+        var ch = "wb-led_107/Channel 3";
+        dev[ch] = !dev[ch];
+    }
+});
+
+defineRule("wb-mcm8_221/Input 3", {
+    whenChanged: "wb-mcm8_221/Input 3",
+    then: function (newValue) {
+        if (!newValue) return; // реагируем только на замыкание
+
+        var ch = "wb-led_118/Channel 2";
+        dev[ch] = !dev[ch];
+    }
+});
+```
+
